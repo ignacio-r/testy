@@ -100,4 +100,10 @@ suite('utility functions', () => {
     assert.isFalse(Utils.isUndefined(''));
     assert.isFalse(Utils.isUndefined([]));
   });
+  
+  test('reporting the current file name and line number of the caller', () => {
+    const triggerCall = () => Utils.callerLineOfCode();
+    // this test will fail if this file name and/or the assert line number changes :)
+    assert.that(triggerCall()).matches(/.*utils_test.js:107.*/);
+  });
 });

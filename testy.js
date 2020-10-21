@@ -17,7 +17,7 @@ function test(name, testBody) {
 }
 
 function suite(name, suiteBody) {
-  return testRunner.registerSuite(name, suiteBody, ui.suiteCallbacks());
+  testRunner.registerSuite(name, suiteBody, ui.suiteCallbacks());
 }
 
 function before(initialization) {
