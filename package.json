@@ -17,6 +17,7 @@
   "scripts": {
     "coverage": "npx nyc@latest --reporter=lcov --reporter=text-summary npm test",
     "open-coverage-report": "xdg-open coverage/lcov-report/index.html",
+    "codecov-report": "npx nyc@latest --reporter=text-lcov npm test > coverage.lcov && codecov",
     "generate-dependencies-graph": "npx madge -i testy-dependencies.png lib/ bin/",
     "lint": "npx eslint@6.8.0 .",
     "lint-fix": "npx eslint@6.8.0 . --fix",

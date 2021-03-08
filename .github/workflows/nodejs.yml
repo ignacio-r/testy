@@ -15,16 +15,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, lint, and test
+    - name: npm install, lint, and test with coverage report
       run: |
         npm install
+        npm i -g codecov
         npm run lint
-        npm test
+        npm run codecov-report
       env:
         CI: true
-    - name: Code Climate Coverage Action
-      uses: paambaati/codeclimate-action@v2.6.0
-      env:
-        CC_TEST_REPORTER_ID: 6ace5bc20f45a4d3b1d1bd56b37e2ed97c92776e402f4f687bb5ee50853cb51c
-      with:
-        coverageCommand: npm run coverage
